@@ -40,3 +40,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomPointsLayer = L.geoJSON(randomPoints).addTo(map);
 });
 
+

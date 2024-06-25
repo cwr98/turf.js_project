@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     marker.bindPopup('A simple marker.').openPopup();
     
     // Example Turf.js feature: calculate the distance between two points
-    const point1Coords = turf.point([52.5123075107294, 13.327030194633902]); //[latitude, longitude]
-    const point2Coords = turf.point([52.514512512991615, 13.350112104633283]); //[latitude, longitude]
+    const point1Coords = [52.5123075107294, 13.327030194633902]; //[latitude, longitude]
+    const point2Coords = [52.514512512991615, 13.350112104633283]; //[latitude, longitude]
     const point1 = turf.point(xyCoordsToLatLong(point1Coords)); // Convert to WGS84 for Turf.js
     const point2 = turf.point(xyCoordsToLatLong(point2Coords)); // Convert to WGS84 for Turf.js
     const options = { units: 'kilometers' };
@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     .openPopup();
 
     // Add buffer example
-    //const buffered = turf.buffer(point1, 0.5, { units: 'kilometers' });
-    //const bufferedGeoJson = L.geoJSON(buffered, { color: 'green' }).addTo(map);
+    const buffered = turf.buffer(point1, 0.5, { units: 'kilometers' });
+    const bufferedGeoJson = L.geoJSON(buffered, { color: 'green' }).addTo(map);
 });
 
 

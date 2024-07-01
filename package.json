@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@turf/turf": "^7.0.0",
     "proj4": "^2.11.0"
   }
 }

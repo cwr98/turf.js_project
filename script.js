@@ -29,10 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create a feature group for storing the lines
     var linesLayer = L.featureGroup();
 
+    var entrancePoints = [];
+
     // Load GeoJSON for point
     var entrancesLayer = new L.GeoJSON.AJAX("zoo_points_working.geojson", {
         onEachFeature: function (feature, layer) {
-            if (!entrancePoints) entrancePoints = feature;
+            entrancePoints.append(feature);
             // Add entrance points to map
             L.geoJson(feature, {
                 pointToLayer: function (feature, latlng) {
@@ -65,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Finding nearest points...');
         // Loop through each entrance point
         if (entrancePoints && pathLines) {
-            entrancePoints.features.forEach(function (entrancePoint) {
+            entrancePoints.forEach(function (entrancePoint) {
+                console.log("loop is running")
                 // Find the nearest point on the path lines
                 var nearest = turf.nearestPointOnLine(pathLines, entrancePoint);
                 console.log("yionk")
